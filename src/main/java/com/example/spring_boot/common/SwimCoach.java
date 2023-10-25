@@ -1,14 +1,11 @@
 package com.example.spring_boot.common;
 
-import org.springframework.stereotype.Component;
-
-@Component
-public class BaseballCoach implements Coach {
-    public BaseballCoach() {
+public class SwimCoach implements Coach{
+    public SwimCoach(){
         System.out.println("In constructor: " + getClass().getSimpleName());
     }
     @Override
     public String getDailyWorkout() {
-        return "Baseball Coach daily workout";
+        return "Swim coach as a warm up";
     }
 }

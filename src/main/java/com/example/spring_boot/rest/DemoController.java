@@ -16,7 +16,7 @@ public class DemoController {
     public DemoController(
             @Qualifier("aquatic") Coach theCoach)
             /*, @Qualifier("trackCoach") Coach theAnotherCoach)*/ {
-        System.out.println("In constructor: " + getClass().getSimpleName());
+
         myCoach = theCoach;
        /* anotherCoach = theAnotherCoach;*/
     }

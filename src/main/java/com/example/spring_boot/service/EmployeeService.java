@@ -1,10 +1,10 @@
-package com.example.spring_boot.dao;
+package com.example.spring_boot.service;
 
 import com.example.spring_boot.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
     List<Employee> findAll();
 

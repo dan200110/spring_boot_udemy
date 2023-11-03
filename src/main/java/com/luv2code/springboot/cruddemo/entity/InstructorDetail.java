@@ -2,8 +2,11 @@ package com.luv2code.springboot.cruddemo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name="instructor_detail")
+@Table(name = "instructor_detail")
 public class InstructorDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +18,10 @@ public class InstructorDetail {
 
     @Column(name = "hobby")
     private String hobby;
+
+    // add @One-to-One annotation
+    @OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private Instructor instructor;
 
     // Constructors
     public InstructorDetail() {
@@ -50,12 +57,16 @@ public class InstructorDetail {
         this.hobby = hobby;
     }
 
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
+
     @Override
     public String toString() {
-        return "InstructorDetail{" +
-                "id=" + id +
-                ", youtubeChannel='" + youtubeChannel + '\'' +
-                ", hobby='" + hobby + '\'' +
-                '}';
+        return "InstructorDetail{" + "id=" + id + ", youtubeChannel='" + youtubeChannel + '\'' + ", hobby='" + hobby + '\'' + '}';
     }
 }
